@@ -1,0 +1,20 @@
+Fitter Status : Successful - Thu Jun  1 02:14:08 2023
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : rv_single
+Top-level Entity Name : rv_single
+Family : Cyclone V
+Device : 5CSEBA6U23I7
+Timing Models : Final
+Logic utilization (in ALMs) : 2,767 / 41,910 ( 7 % )
+Total registers : 2118
+Total pins : 11 / 314 ( 4 % )
+Total virtual pins : 0
+Total block memory bits : 4,194,304 / 5,662,720 ( 74 % )
+Total RAM Blocks : 512 / 553 ( 93 % )
+Total DSP Blocks : 0 / 112 ( 0 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 4 ( 0 % )
