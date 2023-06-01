@@ -1,0 +1,2 @@
+Warning (10273): Verilog HDL warning at rv_3mux64.sv(35): extended using "x" or "z" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 35
+Warning (10268): Verilog HDL information at rv_alu_64ic.sv(39): always construct contains both blocking and non-blocking assignments File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 39

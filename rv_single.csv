@@ -1,0 +1,33 @@
+# Copyright (C) 2022  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+
+# Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+# File: C:\Users\Jeremy\OneDrive\Documents\Study\Master\Thesis\Cores\rv_single\rv_single.csv
+# Generated on: Sat May 27 08:40:41 2023
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus Prime software.
+
+To,Direction,Location,I/O Bank,VREF Group,Fitter Location,I/O Standard,Reserved,Current Strength,Slew Rate,Differential Pair,Transceiver Analog Settings Protocol,VCCR_GXB/VCCT_GXB Voltage,Transceiver I/O Pin Termination,Transceiver Dedicated Refclk Pin Termination,Transmitter Common Mode Driver Voltage,Transmitter Slew Rate Control,Transmitter Differential Output Voltage,Receiver Buffer Common Mode Voltage,Strict Preservation
+c_en,Input,PIN_Y24,5B,B5B_N0,PIN_Y24,3.3-V LVTTL,,,,,,,,,,,,,
+clk,Input,PIN_V11,3B,B3B_N0,PIN_V11,3.3-V LVTTL,,,,,,,,,,,,,
+gpio_out[7],Output,PIN_AA23,5A,B5A_N0,PIN_AA23,3.3-V LVTTL,,,,,,,,,,,,,
+gpio_out[6],Output,PIN_Y16,5A,B5A_N0,PIN_Y16,3.3-V LVTTL,,,,,,,,,,,,,
+gpio_out[5],Output,PIN_AE26,5A,B5A_N0,PIN_AE26,3.3-V LVTTL,,,,,,,,,,,,,
+gpio_out[4],Output,PIN_AF26,5A,B5A_N0,PIN_AF26,3.3-V LVTTL,,,,,,,,,,,,,
+gpio_out[3],Output,PIN_V15,5A,B5A_N0,PIN_V15,3.3-V LVTTL,,,0,,,,,,,,,,
+gpio_out[2],Output,PIN_V16,5A,B5A_N0,PIN_V16,3.3-V LVTTL,,,,,,,,,,,,,
+gpio_out[1],Output,PIN_AA24,5A,B5A_N0,PIN_AA24,3.3-V LVTTL,,,1,,,,,,,,,,
+gpio_out[0],Output,PIN_W15,5A,B5A_N0,PIN_W15,3.3-V LVTTL,,,,,,,,,,,,,
+rst_n,Input,PIN_AH17,4A,B4A_N0,PIN_AH17,3.3-V LVTTL,,,,,,,,,,,,,

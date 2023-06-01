@@ -1,0 +1,7 @@
+**/db
+**/incremental_db
+*.bak
+**/modelsim*
+**/*simulation*
+*log*
+*.q**

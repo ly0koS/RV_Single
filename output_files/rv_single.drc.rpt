@@ -1,0 +1,446 @@
+Design Assistant report for rv_single
+Sat May 27 05:43:41 2023
+Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant Summary
+  3. Parallel Compilation
+  4. Design Assistant Settings
+  5. Information only Violations
+  6. Design Assistant Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------+
+; Design Assistant Summary                                                ;
++-----------------------------------+-------------------------------------+
+; Design Assistant Status           ; Analyzed - Sat May 27 05:43:41 2023 ;
+; Revision Name                     ; rv_single                           ;
+; Top-level Entity Name             ; rv_single                           ;
+; Family                            ; Cyclone V                           ;
+; Total Critical Violations         ; 0                                   ;
+; Total High Violations             ; 0                                   ;
+; Total Medium Violations           ; 0                                   ;
+; Total Information only Violations ; 241                                 ;
+; - Rule T101                       ; 191                                 ;
+; - Rule T102                       ; 50                                  ;
++-----------------------------------+-------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant Settings                                                                                                                                                                  ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+; Option                                                                                                                                                               ; Setting        ; To ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+; Design Assistant mode                                                                                                                                                ; Post-Synthesis ;    ;
+; Threshold value for clock net not mapped to clock spines rule                                                                                                        ; 25             ;    ;
+; Minimum number of clock port feed by gated clocks                                                                                                                    ; 30             ;    ;
+; Minimum number of node fan-out                                                                                                                                       ; 30             ;    ;
+; Maximum number of nodes to report                                                                                                                                    ; 50             ;    ;
+; Rule C101: Gated clock should be implemented according to the Intel FPGA standard scheme                                                                             ; On             ;    ;
+; Rule C102: Logic cell should not be used to generate an inverted clock signal                                                                                        ; On             ;    ;
+; Rule C103: Gated clock does not feed at least a pre-defined number of clock ports to effectively save power                                                          ; On             ;    ;
+; Rule C104: Clock signal source should drive only clock input ports                                                                                                   ; On             ;    ;
+; Rule C105: Clock signal should be a global signal                                                                                                                    ; On             ;    ;
+; Rule C106: Clock signal source should not drive registers triggered by different clock edges                                                                         ; On             ;    ;
+; Rule R101: Combinational logic used as a reset signal should be synchronized                                                                                         ; On             ;    ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers                                                                                ; On             ;    ;
+; Rule R103: External reset signal should be correctly synchronized                                                                                                    ; On             ;    ;
+; Rule R104: The reset signal that is generated in one clock domain and used in another clock domain should be correctly synchronized                                  ; On             ;    ;
+; Rule R105: The reset signal that is generated in one clock domain and used in another clock domain should be synchronized                                            ; On             ;    ;
+; Rule T101: Nodes with more than the specified number of fan-outs                                                                                                     ; On             ;    ;
+; Rule T102: Top nodes with the highest number of fan-outs                                                                                                             ; On             ;    ;
+; Rule A101: Design should not contain combinational loops                                                                                                             ; On             ;    ;
+; Rule A102: Register output should not drive its own control signal directly or through combinational logic                                                           ; On             ;    ;
+; Rule A103: Design should not contain delay chains                                                                                                                    ; On             ;    ;
+; Rule A104: Design should not contain ripple clock structures                                                                                                         ; On             ;    ;
+; Rule A105: Pulses should not be implemented asynchronously                                                                                                           ; On             ;    ;
+; Rule A106: Multiple pulses should not be generated in design                                                                                                         ; On             ;    ;
+; Rule A107: Design should not contain SR latches                                                                                                                      ; On             ;    ;
+; Rule A108: Design should not contain latches                                                                                                                         ; On             ;    ;
+; Rule S101: Output enable and input of the same tri-state node should not be driven by same signal source                                                             ; On             ;    ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source                                                ; On             ;    ;
+; Rule S103: More than one asynchronous port of a register should not be driven by the same signal source                                                              ; On             ;    ;
+; Rule S104: Clock port and any other port of a register should not be driven by the same signal source                                                                ; On             ;    ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains                                                                        ; On             ;    ;
+; Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain ; On             ;    ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains                                                              ; On             ;    ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Information only Violations                                                                                                                                                                       ;
++------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
+; Rule name                                                        ; Name                                                                                                                 ; Fan-Out ;
++------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_pc:pc_reg|pc[47]~0                                                                                                ; 48      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w5_n0_mux_dataout~0  ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|address_reg_b[1]                     ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux2_64:opb_mux|out[4]~22                                                                                         ; 42      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|address_reg_b[0]                     ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux2_64:opb_mux|out[5]~21                                                                                         ; 45      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w2_n0_mux_dataout~0  ; 31      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[12]~27                                                                                      ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux2_64:opb_mux|out[2]~13                                                                                         ; 128     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[11]~25                                                                                      ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux2_64:opb_mux|out[0]~10                                                                                         ; 136     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[10]~23                                                                                      ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux2_64:opb_mux|out[1]~11                                                                                         ; 137     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w6_n0_mux_dataout~0  ; 35      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[9]~21                                                                                       ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_cs_64ic:csg|Mux38~3                                                                                               ; 129     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|Equal0~0                                                                                       ; 83      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[8]~19                                                                                       ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_cs_64ic:csg|Mux38~0                                                                                               ; 128     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w12_n0_mux_dataout~0 ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[7]~17                                                                                       ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|R1_idx[4]~8                                                                                    ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[6]~15                                                                                       ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|R1_idx[3]~4                                                                                    ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[5]~13                                                                                       ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6291                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_cs_64ic:csg|Mux43~0                                                                                               ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w4_n0_mux_dataout~0  ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[4]~11                                                                                       ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6438                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w15_n0_mux_dataout~0 ; 68      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[3]~9                                                                                        ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6309                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mem_1024:d_mem|altsyncram:mem_rtl_0|altsyncram_hdq1:auto_generated|address_reg_b[1]                               ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_cs_64ic:csg|Data_wr_en~2                                                                                          ; 262     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_cs_64ic:csg|pc_sel[0]~1                                                                                           ; 70      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_cs_64ic:csg|Data_wr_en~0                                                                                          ; 262     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w1_n0_mux_dataout~0  ; 55      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[2]~7                                                                                        ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux2_64:opb_mux|out[3]~12                                                                                         ; 128     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|XLEN~0                                                                                         ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w14_n0_mux_dataout~0 ; 55      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[1]~5                                                                                        ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux3_64:pc_in_mux|out[0]~3                                                                                        ; 513     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|funct3_o[1]~1                                                                                  ; 36      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w13_n0_mux_dataout~0 ; 50      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|decode_dla:decode2|w_anode4220w[3]~0 ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6365                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mem_1024:d_mem|altsyncram:mem_rtl_0|altsyncram_hdq1:auto_generated|address_reg_b[0]                               ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[1]~0                                                                                          ; 101     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[12]~315                                                                                       ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[11]~314                                                                                       ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[10]~313                                                                                       ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[9]~312                                                                                        ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[8]~311                                                                                        ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[7]~310                                                                                        ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[6]~309                                                                                        ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[5]~308                                                                                        ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[4]~307                                                                                        ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[3]~306                                                                                        ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[2]~305                                                                                        ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[1]~304                                                                                        ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|Mux63~10                                                                                             ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|decode_dla:decode2|w_anode4210w[3]~0 ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|decode_dla:decode2|w_anode4200w[3]~0 ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|decode_dla:decode2|w_anode4183w[3]~0 ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|decode_dla:decode2|w_anode4260w[3]~0 ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|decode_dla:decode2|w_anode4250w[3]~0 ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|decode_dla:decode2|w_anode4240w[3]~0 ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|decode_dla:decode2|w_anode4230w[3]~0 ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|address_reg_b[2]                     ; 43      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w0_n0_mux_dataout~0  ; 47      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|funct3_o[0]~2                                                                                  ; 34      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_cs_64ic:csg|Mux47~5                                                                                               ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_cs_64ic:csg|Mux39~5                                                                                               ; 90      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6316                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|R2_idx[4]~4                                                                                    ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|R2_idx[3]~2                                                                                    ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6384                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|Wr_idx[0]~25                                                                                   ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|Wr_idx[2]~22                                                                                   ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|Wr_idx[3]~21                                                                                   ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|R2_idx[2]~15                                                                                   ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|R2_idx[1]~11                                                                                   ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|R2_idx[0]~7                                                                                    ; 256     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6385                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6383                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6382                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6292                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6290                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6289                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6287                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6380                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6381                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6379                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6378                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6288                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6286                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6285                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6283                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6376                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6377                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6375                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6374                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6284                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6282                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6281                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6279                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6372                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6373                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6371                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6370                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6280                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6278                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6277                                                                                           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mem_1024:d_mem|altsyncram:mem_rtl_0|altsyncram_hdq1:auto_generated|decode_8la:decode2|w_anode1100w[2]~0           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mem_1024:d_mem|altsyncram:mem_rtl_0|altsyncram_hdq1:auto_generated|decode_8la:decode2|w_anode1092w[2]~0           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mem_1024:d_mem|altsyncram:mem_rtl_0|altsyncram_hdq1:auto_generated|decode_8la:decode2|w_anode1084w[2]~0           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mem_1024:d_mem|altsyncram:mem_rtl_0|altsyncram_hdq1:auto_generated|decode_8la:decode2|w_anode1071w[2]~0           ; 64      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6273                                                                                           ; 65      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6272                                                                                           ; 65      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_cs_64ic:csg|pc_sel[0]~5                                                                                           ; 48      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6369                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_mux2_64:opb_mux|out[5]~14                                                                                         ; 33      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6386                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6390                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6343                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|R1_idx[2]~22                                                                                   ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|R1_idx[1]~18                                                                                   ; 512     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_decode_64ic:decode|R1_idx[0]~19                                                                                   ; 256     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_cs_64ic:csg|Mux42~5                                                                                               ; 65      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6422                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6426                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6414                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6418                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6398                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6402                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6406                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6410                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6394                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6442                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6307                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6310                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_cs_64ic:csg|Mux38~4                                                                                               ; 70      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6338                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6323                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6367                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[2]~2                                                                                          ; 49      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[2]~1                                                                                          ; 50      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6322                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6339                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_alu_64ic:alu|result[34]~143                                                                                       ; 41      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6361                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6317                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6345                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6321                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6353                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6314                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6326                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6363                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6318                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6334                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6357                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6319                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6336                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6359                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6324                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6332                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6351                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6313                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6328                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6294                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6315                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6330                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6355                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6300                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6296                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6304                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6276                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6312                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6302                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6347                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6305                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6311                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6298                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6306                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6348                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6341                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6349                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6430                                                                                           ; 32      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; rv_reg:registers|regs~6434                                                                                           ; 32      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[4]~11                                                                                       ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[10]~23                                                                                      ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[2]~7                                                                                        ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[5]~13                                                                                       ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[0]~3                                                                                        ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[1]~5                                                                                        ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[8]~19                                                                                       ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[3]~9                                                                                        ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[6]~15                                                                                       ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[12]~27                                                                                      ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[9]~21                                                                                       ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[11]~25                                                                                      ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux3_64:pc_in_mux|out[7]~17                                                                                       ; 513     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[4]~307                                                                                        ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_decode_64ic:decode|R2_idx[1]~11                                                                                   ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[5]~308                                                                                        ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[2]~305                                                                                        ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_decode_64ic:decode|R2_idx[2]~15                                                                                   ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_decode_64ic:decode|R1_idx[1]~18                                                                                   ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[6]~309                                                                                        ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[9]~312                                                                                        ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[10]~313                                                                                       ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_decode_64ic:decode|R1_idx[2]~22                                                                                   ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[11]~314                                                                                       ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|Mux63~10                                                                                             ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[12]~315                                                                                       ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[8]~311                                                                                        ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[3]~306                                                                                        ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[1]~304                                                                                        ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[7]~310                                                                                        ; 512     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_cs_64ic:csg|Data_wr_en~0                                                                                          ; 262     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_cs_64ic:csg|Data_wr_en~2                                                                                          ; 262     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_decode_64ic:decode|R1_idx[0]~19                                                                                   ; 256     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_decode_64ic:decode|R2_idx[0]~7                                                                                    ; 256     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux2_64:opb_mux|out[1]~11                                                                                         ; 137     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux2_64:opb_mux|out[0]~10                                                                                         ; 136     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_cs_64ic:csg|Mux38~3                                                                                               ; 129     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux2_64:opb_mux|out[3]~12                                                                                         ; 128     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_cs_64ic:csg|Mux38~0                                                                                               ; 128     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_mux2_64:opb_mux|out[2]~13                                                                                         ; 128     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_alu_64ic:alu|result[1]~0                                                                                          ; 101     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_cs_64ic:csg|Mux39~5                                                                                               ; 90      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_decode_64ic:decode|Equal0~0                                                                                       ; 83      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_cs_64ic:csg|Mux38~4                                                                                               ; 70      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_cs_64ic:csg|pc_sel[0]~1                                                                                           ; 70      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w15_n0_mux_dataout~0 ; 68      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_reg:registers|regs~6273                                                                                           ; 65      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_cs_64ic:csg|Mux42~5                                                                                               ; 65      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_reg:registers|regs~6272                                                                                           ; 65      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; rv_reg:registers|regs~6285                                                                                           ; 64      ;
++------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------+
+; Design Assistant Messages ;
++---------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Design Assistant
+    Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+    Info: Processing started: Sat May 27 05:43:38 2023
+Info: Command: quartus_drc rv_single -c rv_single
+Info (119006): Selected device 5CSEBA6U23I7 for design "rv_single"
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'rv_single.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332144): No user constrained base clocks found in the design
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (308046): (Information) Rule T101: Nodes with more than the specified number of fan-outs. (Value defined:30). Found 191 node(s) with highest fan-out.
+    Info (308011): Node  "rv_pc:pc_reg|pc[47]~0" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_pc.sv Line: 10
+    Info (308011): Node  "rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w5_n0_mux_dataout~0" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/db/mux_ahb.tdf Line: 249
+    Info (308011): Node  "rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|address_reg_b[1]" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/db/altsyncram_6dq1.tdf Line: 43
+    Info (308011): Node  "rv_mux2_64:opb_mux|out[4]~22" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_2mux64.sv Line: 22
+    Info (308011): Node  "rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|address_reg_b[0]" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/db/altsyncram_6dq1.tdf Line: 43
+    Info (308011): Node  "rv_mux2_64:opb_mux|out[5]~21" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_2mux64.sv Line: 22
+    Info (308011): Node  "rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w2_n0_mux_dataout~0" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/db/mux_ahb.tdf Line: 244
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[12]~27" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux2_64:opb_mux|out[2]~13" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_2mux64.sv Line: 22
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[11]~25" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux2_64:opb_mux|out[0]~10" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_2mux64.sv Line: 22
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[10]~23" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux2_64:opb_mux|out[1]~11" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_2mux64.sv Line: 22
+    Info (308011): Node  "rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w6_n0_mux_dataout~0" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/db/mux_ahb.tdf Line: 250
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[9]~21" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_cs_64ic:csg|Mux38~3" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_cs_64ic.sv Line: 83
+    Info (308011): Node  "rv_decode_64ic:decode|Equal0~0" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_decode_64ic.sv Line: 34
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[8]~19" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_cs_64ic:csg|Mux38~0" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_cs_64ic.sv Line: 83
+    Info (308011): Node  "rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w12_n0_mux_dataout~0" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/db/mux_ahb.tdf Line: 225
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[7]~17" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_decode_64ic:decode|R1_idx[4]~8" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_decode_64ic.sv Line: 8
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[6]~15" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_decode_64ic:decode|R1_idx[3]~4" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_decode_64ic.sv Line: 8
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[5]~13" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_reg:registers|regs~6291" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_reg.sv Line: 13
+    Info (308011): Node  "rv_cs_64ic:csg|Mux43~0" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_cs_64ic.sv Line: 83
+    Info (308011): Node  "rv_instr_mem:inst_mem|altsyncram:instr_mem_rtl_0|altsyncram_6dq1:auto_generated|mux_ahb:mux3|l3_w4_n0_mux_dataout~0" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/db/mux_ahb.tdf Line: 248
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[4]~11" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_reg:registers|regs~6438" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_reg.sv Line: 13
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308044): (Information) Rule T102: Top nodes with the highest number of fan-outs. (Value defined:50). Found 50 node(s) with highest fan-out.
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[4]~11" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[10]~23" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[2]~7" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[5]~13" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[0]~3" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[1]~5" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[8]~19" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[3]~9" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[6]~15" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[12]~27" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[9]~21" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[11]~25" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_mux3_64:pc_in_mux|out[7]~17" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_3mux64.sv Line: 24
+    Info (308011): Node  "rv_alu_64ic:alu|result[4]~307" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308011): Node  "rv_decode_64ic:decode|R2_idx[1]~11" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_decode_64ic.sv Line: 9
+    Info (308011): Node  "rv_alu_64ic:alu|result[5]~308" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308011): Node  "rv_alu_64ic:alu|result[2]~305" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308011): Node  "rv_decode_64ic:decode|R2_idx[2]~15" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_decode_64ic.sv Line: 9
+    Info (308011): Node  "rv_decode_64ic:decode|R1_idx[1]~18" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_decode_64ic.sv Line: 8
+    Info (308011): Node  "rv_alu_64ic:alu|result[6]~309" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308011): Node  "rv_alu_64ic:alu|result[9]~312" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308011): Node  "rv_alu_64ic:alu|result[10]~313" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308011): Node  "rv_decode_64ic:decode|R1_idx[2]~22" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_decode_64ic.sv Line: 8
+    Info (308011): Node  "rv_alu_64ic:alu|result[11]~314" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308011): Node  "rv_alu_64ic:alu|Mux63~10" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 46
+    Info (308011): Node  "rv_alu_64ic:alu|result[12]~315" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308011): Node  "rv_alu_64ic:alu|result[8]~311" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308011): Node  "rv_alu_64ic:alu|result[3]~306" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308011): Node  "rv_alu_64ic:alu|result[1]~304" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308011): Node  "rv_alu_64ic:alu|result[7]~310" File: C:/Users/Jeremy/OneDrive/Documents/Study/Master/Thesis/Cores/rv_single/include/rv_alu_64ic.sv Line: 33
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308006): Design Assistant information: finished post-synthesis analysis of current design -- generated 241 information messages and 0 warning messages
+Info: Quartus Prime Design Assistant was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 5111 megabytes
+    Info: Processing ended: Sat May 27 05:43:41 2023
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+
